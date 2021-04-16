@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "read_PV_modbus.py", line 51, in <module>
+    values = inverter.read_all()
+  File "/usr/local/lib/python3.7/dist-packages/solaredge_modbus/__init__.py", line 354, in read_all
+    results.update(self._read_all(register_batch, rtype))
+  File "/usr/local/lib/python3.7/dist-packages/solaredge_modbus/__init__.py", line 307, in _read_all
+    data = self._read_holding_registers(offset, length)
+  File "/usr/local/lib/python3.7/dist-packages/solaredge_modbus/__init__.py", line 229, in _read_holding_registers
+    result = self.client.read_holding_registers(address, length, unit=self.unit)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/client/common.py", line 114, in read_holding_registers
+    return self.execute(request)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/client/sync.py", line 109, in execute
+    return self.transaction.execute(request)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/transaction.py", line 177, in execute
+    broadcast=broadcast
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/transaction.py", line 290, in _transact
+    result = self._recv(response_length, full)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/transaction.py", line 321, in _recv
+    read_min = self.client.framer.recvPacket(min_size)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/framer/__init__.py", line 49, in recvPacket
+    return self.client.recv(size)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/client/sync.py", line 89, in recv
+    return self._recv(size)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/client/sync.py", line 299, in _recv
+    size, data, time.time() - time_)
+  File "/usr/local/lib/python3.7/dist-packages/pymodbus/client/sync.py", line 343, in _handle_abrupt_socket_close
+    raise ConnectionException(msg)
+pymodbus.exceptions.ConnectionException: Modbus Error: [Connection] ModbusTcpClient(192.168.0.60:1502): Connection unexpectedly closed 0.000085 seconds into read of 8 bytes without response from unit before it closed connection
+Traceback (most recent call last):
+  File "read_PV_modbus.py", line 61, in <module>
+    "c_manufacturer": values["c_manufacturer"],
+KeyError: 'c_manufacturer'
+  File "read_PV_modbus.py", line 171
+    except Exception as e:
+    ^
+IndentationError: unexpected unindent
